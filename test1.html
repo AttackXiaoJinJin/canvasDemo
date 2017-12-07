@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>test1</title>
+  <style>
+    #canvas1{
+      border: 1px red solid;
+      display: block;
+      margin: 50px auto;
+    }
+
+  </style>
+</head>
+<body>
+  <canvas id="canvas1">
+
+  </canvas>
+
+  <script>
+    window.onload=function () {
+      let canvas=document.querySelector('#canvas1')
+      //设置大小
+      canvas.width=1024
+      canvas.height=768
+      if(canvas.getContext){
+        let context=canvas.getContext('2d')
+        //使用context进行绘制
+        //画一条直线
+        context.beginPath()
+        context.moveTo(100,100)
+        context.lineTo(300,300)
+        context.lineTo(100,300)
+        context.lineTo(100,100)
+        context.closePath()
+        //画笔粗细
+        // context.lineWidth=5
+        //颜色
+        // context.strokeStyle="#005588"
+        //绘制线条，stroke是笔画的意思
+        // context.stroke()
+
+        context.fillStyle="rgb(2,100,30)"
+        context.fill()
+        context.beginPath()
+        context.arc(300,300,100,0,1.5*Math.PI)
+        context.stroke()
+        context.closePath()
+       context.strokeStyle="red"
+        context.stroke()
+
+
+      }else{
+        alert('当前浏览器不支持canvas,请更换浏览器重试')
+      }
+
+
+
+    }
+
+  </script>
+</body>
+</html>
+
+
+
+
